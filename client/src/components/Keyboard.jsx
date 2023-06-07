@@ -8,54 +8,119 @@ const KeyRow = styled.li`
 `;
 
 const KeyButtons = styled.button`
-  width: 35px;
-  height: 40px;
+  width: 45px;
+  height: 50px;
 `;
 
 const ClearEnterBtn = styled.button`
-  width: 50px;
-  height: 40px;
+  width: 60px;
+  height: 50px;
 `;
 
-const Keyboard = () => {
+const KeyRowsContainer = styled.ul`
+  margin: 10px 0 0 0;
+  padding: 0;
+`;
+
+const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumber, submitWord, deleteLetter }) => {
+
+  const insertLetter = (e) => {
+    const typedLetter = e.target.textContent;
+    console.log('Typed letter is: ', typedLetter);
+    if (rowNumber === 1) {
+      setRow1((prevRow) => {
+        if (prevRow.length < 5) {
+          return [...prevRow, typedLetter];
+        } else {
+          console.log("Previous row: ", prevRow);
+          return [...prevRow];
+        }
+      });
+    } else if (rowNumber === 2) {
+      setRow2((prevRow) => {
+        if (prevRow.length < 5) {
+          return [...prevRow, typedLetter];
+        } else {
+          console.log("Previous row: ", prevRow);
+          return [...prevRow];
+        }
+      });
+    } else if (rowNumber === 3) {
+      setRow3((prevRow) => {
+        if (prevRow.length < 5) {
+          return [...prevRow, typedLetter];
+        } else {
+          console.log("Previous row: ", prevRow);
+          return [...prevRow];
+        }
+      });
+    } else if (rowNumber === 4) {
+      setRow4((prevRow) => {
+        if (prevRow.length < 5) {
+          return [...prevRow, typedLetter];
+        } else {
+          console.log("Previous row: ", prevRow);
+          return [...prevRow];
+        }
+      });
+    } else if (rowNumber === 5) {
+      setRow5((prevRow) => {
+        if (prevRow.length < 5) {
+          return [...prevRow, typedLetter];
+        } else {
+          console.log("Previous row: ", prevRow);
+          return [...prevRow];
+        }
+      });
+    } else if (rowNumber === 6) {
+      setRow6((prevRow) => {
+        if (prevRow.length < 5) {
+          return [...prevRow, typedLetter];
+        } else {
+          console.log("Previous row: ", prevRow);
+          return [...prevRow];
+        }
+      });
+    }
+  };
 
   return (
-    <ul style={{ margin: 0, padding: 0 }}>
+    <KeyRowsContainer>
       <KeyRow>
-        <KeyButtons>Q</KeyButtons>
-        <KeyButtons>W</KeyButtons>
-        <KeyButtons>E</KeyButtons>
-        <KeyButtons>R</KeyButtons>
-        <KeyButtons>T</KeyButtons>
-        <KeyButtons>Y</KeyButtons>
-        <KeyButtons>U</KeyButtons>
-        <KeyButtons>I</KeyButtons>
-        <KeyButtons>O</KeyButtons>
-        <KeyButtons>P</KeyButtons>
+        <KeyButtons onClick={insertLetter}>Q</KeyButtons>
+        <KeyButtons onClick={insertLetter}>W</KeyButtons>
+        <KeyButtons onClick={insertLetter}>E</KeyButtons>
+        <KeyButtons onClick={insertLetter}>R</KeyButtons>
+        <KeyButtons onClick={insertLetter}>T</KeyButtons>
+        <KeyButtons onClick={insertLetter}>Y</KeyButtons>
+        <KeyButtons onClick={insertLetter}>U</KeyButtons>
+        <KeyButtons onClick={insertLetter}>I</KeyButtons>
+        <KeyButtons onClick={insertLetter}>O</KeyButtons>
+        <KeyButtons onClick={insertLetter}>P</KeyButtons>
       </KeyRow>
       <KeyRow>
-        <KeyButtons>A</KeyButtons>
-        <KeyButtons>S</KeyButtons>
-        <KeyButtons>D</KeyButtons>
-        <KeyButtons>F</KeyButtons>
-        <KeyButtons>G</KeyButtons>
-        <KeyButtons>H</KeyButtons>
-        <KeyButtons>J</KeyButtons>
-        <KeyButtons>K</KeyButtons>
-        <KeyButtons>L</KeyButtons>
+        <KeyButtons onClick={insertLetter}>A</KeyButtons>
+        <KeyButtons onClick={insertLetter}>S</KeyButtons>
+        <KeyButtons onClick={insertLetter}>D</KeyButtons>
+        <KeyButtons onClick={insertLetter}>F</KeyButtons>
+        <KeyButtons onClick={insertLetter}>G</KeyButtons>
+        <KeyButtons onClick={insertLetter}>H</KeyButtons>
+        <KeyButtons onClick={insertLetter}>J</KeyButtons>
+        <KeyButtons onClick={insertLetter}>K</KeyButtons>
+        <KeyButtons onClick={insertLetter}>L</KeyButtons>
       </KeyRow>
       <KeyRow>
-        <ClearEnterBtn>Clear</ClearEnterBtn>
-        <KeyButtons>Z</KeyButtons>
-        <KeyButtons>X</KeyButtons>
-        <KeyButtons>C</KeyButtons>
-        <KeyButtons>V</KeyButtons>
-        <KeyButtons>B</KeyButtons>
-        <KeyButtons>N</KeyButtons>
-        <KeyButtons>M</KeyButtons>
-        <ClearEnterBtn>Enter</ClearEnterBtn>
+        <ClearEnterBtn style={{ marginRight: '5px' }} onClick={deleteLetter}>Clear Prev</ClearEnterBtn>
+        <KeyButtons onClick={insertLetter}>Z</KeyButtons>
+        <KeyButtons onClick={insertLetter}>X</KeyButtons>
+        <KeyButtons onClick={insertLetter}>C</KeyButtons>
+        <KeyButtons onClick={insertLetter}>V</KeyButtons>
+        <KeyButtons onClick={insertLetter}>B</KeyButtons>
+        <KeyButtons onClick={insertLetter}>N</KeyButtons>
+        <KeyButtons onClick={insertLetter}>M</KeyButtons>
+        <ClearEnterBtn style={{ marginLeft: '5px' }} onClick={submitWord}>Enter</ClearEnterBtn>
       </KeyRow>
-    </ul>
+    </KeyRowsContainer>
   );
 };
 

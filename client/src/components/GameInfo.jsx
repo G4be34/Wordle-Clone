@@ -10,7 +10,7 @@ const GameInfoContainer = styled.div`
 
 const ScoreBox = styled.div`
   border: 2px solid black;
-  padding: 5px 15px 5px 5px;
+  padding: 5px 20px 5px 5px;
 `;
 
 const LoginBox = styled.div`
