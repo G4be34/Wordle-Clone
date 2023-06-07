@@ -27,7 +27,7 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
   const insertLetter = (e) => {
     const typedLetter = e.target.textContent;
     console.log('Typed letter is: ', typedLetter);
-    if (rowNumber === 1) {
+    if (rowNumber === 0) {
       setRow1((prevRow) => {
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
@@ -36,7 +36,7 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
           return [...prevRow];
         }
       });
-    } else if (rowNumber === 2) {
+    } else if (rowNumber === 1) {
       setRow2((prevRow) => {
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
@@ -45,7 +45,7 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
           return [...prevRow];
         }
       });
-    } else if (rowNumber === 3) {
+    } else if (rowNumber === 2) {
       setRow3((prevRow) => {
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
@@ -54,7 +54,7 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
           return [...prevRow];
         }
       });
-    } else if (rowNumber === 4) {
+    } else if (rowNumber === 3) {
       setRow4((prevRow) => {
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
@@ -63,7 +63,7 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
           return [...prevRow];
         }
       });
-    } else if (rowNumber === 5) {
+    } else if (rowNumber === 4) {
       setRow5((prevRow) => {
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
@@ -72,7 +72,7 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
           return [...prevRow];
         }
       });
-    } else if (rowNumber === 6) {
+    } else if (rowNumber === 5) {
       setRow6((prevRow) => {
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];

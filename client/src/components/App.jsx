@@ -18,7 +18,7 @@ const GameContainer = styled.div`
 export default function App() {
   const [goalWord, setGoalWord] = useState('HORSE');
   const [letterCorrectness, setLetterCorrectness] = useState([]);
-  const [rowNumber, setRowNumber] = useState(1);
+  const [rowNumber, setRowNumber] = useState(0);
   const [row1, setRow1] = useState([]);
   const [row2, setRow2] = useState([]);
   const [row3, setRow3] = useState([]);
@@ -27,32 +27,32 @@ export default function App() {
   const [row6, setRow6] = useState([]);
 
   const deleteLetter = () => {
-    if (rowNumber === 1) {
+    if (rowNumber === 0) {
       setRow1((prevRow) => {
         const updatedRow = prevRow.slice(0, -1);
         return updatedRow;
       });
-    } else if (rowNumber === 2) {
+    } else if (rowNumber === 1) {
       setRow2((prevRow) => {
         const updatedRow = prevRow.slice(0, -1);
         return updatedRow;
       });
-    } else if (rowNumber === 3) {
+    } else if (rowNumber === 2) {
       setRow3((prevRow) => {
         const updatedRow = prevRow.slice(0, -1);
         return updatedRow;
       });
-    } else if (rowNumber === 4) {
+    } else if (rowNumber === 3) {
       setRow4((prevRow) => {
         const updatedRow = prevRow.slice(0, -1);
         return updatedRow;
       });
-    } else if (rowNumber === 5) {
+    } else if (rowNumber === 4) {
       setRow5((prevRow) => {
         const updatedRow = prevRow.slice(0, -1);
         return updatedRow;
       });
-    } else if (rowNumber === 6) {
+    } else if (rowNumber === 5) {
       setRow6((prevRow) => {
         const updatedRow = prevRow.slice(0, -1);
         return updatedRow;
@@ -77,20 +77,20 @@ export default function App() {
   };
 
   const submitWord = () => {
-    if (rowNumber <= 6) {
+    if (rowNumber < 6) {
       let word;
 
-      if (rowNumber === 1) {
+      if (rowNumber === 0) {
         word = row1.join('');
-      } else if (rowNumber === 2) {
+      } else if (rowNumber === 1) {
         word = row2.join('');
-      } else if (rowNumber === 3) {
+      } else if (rowNumber === 2) {
         word = row3.join('');
-      } else if (rowNumber === 4) {
+      } else if (rowNumber === 3) {
         word = row4.join('');
-      } else if (rowNumber === 5) {
+      } else if (rowNumber === 4) {
         word = row5.join('');
-      } else if (rowNumber === 6) {
+      } else if (rowNumber === 5) {
         word = row6.join('');
       }
 
