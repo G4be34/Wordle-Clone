@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import GameInfo from './GameInfo';
 import Keyboard from './Keyboard';
 import WordBox from './WordBox';
-import styled from 'styled-components';
+import InfoModal from './InfoModal';
 
 const GameContainer = styled.div`
   display: flex;
@@ -15,10 +16,20 @@ const GameContainer = styled.div`
   margin: auto;
 `;
 
+const InstructionsBtn = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+`;
+
 export default function App() {
-  const [goalWord, setGoalWord] = useState('HORSE');
+  const [goalWord, setGoalWord] = useState('');
   const [letterCorrectness, setLetterCorrectness] = useState([]);
   const [rowNumber, setRowNumber] = useState(0);
+  const [winLossCount, setWinLossCount] = useState('');
+  const [showInfoModal, setShowInfoModal] = useState(true);
   const [row1, setRow1] = useState([]);
   const [row2, setRow2] = useState([]);
   const [row3, setRow3] = useState([]);
@@ -76,6 +87,26 @@ export default function App() {
     setLetterCorrectness(newArray);
   };
 
+  const createNewGoalWord = async () => {
+    try {
+      const randomIndex = Math.floor(Math.random() * 100);
+      const newWords = await axios.get('/newgoal');
+      const newWord = newWords.data[randomIndex].word.toUpperCase();
+      console.log('New goal word: ', newWord);
+      setGoalWord(newWord);
+      setLetterCorrectness([]);
+      setRowNumber(0);
+      setRow1([]);
+      setRow2([]);
+      setRow3([]);
+      setRow4([]);
+      setRow5([]);
+      setRow6([]);
+    } catch (error) {
+      console.log('Error getting new goal word: ', error);
+    }
+  };
+
   const submitWord = () => {
     if (rowNumber < 6) {
       let word;
@@ -113,15 +144,22 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    createNewGoalWord();
+  }, []);
 
   return (
     <GameContainer>
-      <GameInfo />
-      <WordBox row1={row1} row2={row2} row3={row3} row4={row4} row5={row5} row6={row6}
-      letterCorrectness={letterCorrectness} rowNumber={rowNumber}/>
+      {showInfoModal && <InfoModal setShowInfoModal={setShowInfoModal} />}
+      <GameInfo winLossCount={winLossCount} />
+      <WordBox row1={row1} row2={row2} row3={row3} row4={row4} row5={row5} row6={row6} setWinLossCount={setWinLossCount}
+      letterCorrectness={letterCorrectness} rowNumber={rowNumber} setGoalWord={setGoalWord} createNewGoalWord={createNewGoalWord} />
       <Keyboard
       setRow1={setRow1} setRow2={setRow2} setRow3={setRow3} setRow4={setRow4} setRow5={setRow5} setRow6={setRow6}
-      rowNumber={rowNumber} submitWord={submitWord} deleteLetter={deleteLetter}/>
+      rowNumber={rowNumber} submitWord={submitWord} deleteLetter={deleteLetter} />
+      <InstructionsBtn>
+        <button style={{ padding: '.5em' }} onClick={() => setShowInfoModal(true)}>Instructions</button>
+      </InstructionsBtn>
     </GameContainer>
   );
 }

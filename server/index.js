@@ -13,9 +13,9 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/users', async (req, res) => {
   try{
-    if (req.query.id !== undefined) {
-      const { id } = req.query;
-      const singleUser = await User.findOne({ _id: id });
+    if (req.query.username !== undefined) {
+      const { username } = req.query;
+      const singleUser = await User.findOne({ username });
       res.status(200).send(singleUser);
     } else {
       const allUsers = await User.find({});
@@ -31,8 +31,7 @@ app.post('/users', async (req, res) => {
   try{
     const user = new User({
       username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
+      number: req.body.number,
       wins: 0,
       losses: 0,
     });
@@ -67,6 +66,16 @@ app.get('/word', async (req, res) => {
     } else {
       res.sendStatus(500);
     }
+  }
+});
+
+app.get('/newgoal', async (req, res) => {
+  try {
+    const newWords = await axios.get('https://api.datamuse.com/words?sp=?????');
+    res.status(200).send(newWords.data);
+  } catch (error) {
+    console.log('Error obtaining new goal word: ', error.response);
+    res.sendStatus(500);
   }
 });
 
