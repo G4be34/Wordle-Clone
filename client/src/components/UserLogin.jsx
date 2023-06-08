@@ -10,6 +10,17 @@ const UserInfo = styled.div`
   border: 2px solid black;
   margin: 1em;
   padding-left: 1em;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    height: 2em;
+    border: 2px solid black;
+    margin: 1em;
+    padding-left: 1em;
+  }
 `;
 
 const ScoreInfo = styled.div`
@@ -17,12 +28,25 @@ const ScoreInfo = styled.div`
   gap: 1em;
   align-items: center;
   margin-right: 1em;
+
+  @media (max-width: 768px) {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-right: 1em;
+  }
 `;
 
 const UserPasswordContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
 `;
 
 const UserLogin = ({ user, setUsername, setWinCount, setLoseCount, setShowLoginModal, setLoggedIn, setUserId }) => {

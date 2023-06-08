@@ -4,17 +4,18 @@ import styled from 'styled-components';
 const KeyRow = styled.li`
   display: flex;
   justify-content: center;
-  margin: 5px;
+  margin: .5em;
 `;
 
 const KeyButtons = styled.button`
-  width: 45px;
-  height: 50px;
+  width: 3.4em;
+  height: 3.4em;
 `;
 
 const ClearEnterBtn = styled.button`
-  width: 60px;
-  height: 50px;
+  width: 3.6em;
+  height: 3.4em;
+  background-color: #999999;
 `;
 
 const KeyRowsContainer = styled.ul`

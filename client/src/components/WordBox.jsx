@@ -6,10 +6,10 @@ import LoseModal from './LoseModal';
 const LetterBox = styled.div`
   border: 2px solid black;
   font-size: 20px;
-  margin: 10px;
+  margin: .55em;
   padding: 15px;
-  width: 40px;
-  height: 40px;
+  width: 2em;
+  height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;

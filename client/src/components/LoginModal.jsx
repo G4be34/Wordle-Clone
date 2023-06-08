@@ -14,6 +14,20 @@ const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -24,18 +38,40 @@ const InfoContainer = styled.div`
   width: 40vw;
   max-height: 25vw;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: auto;
+    width: 40vw;
+    max-height: 25vw;
+    overflow-y: auto;
+  }
 `;
 
 const Buttons = styled.button`
   height: 2em;
   width: auto;
   margin: 1em;
+
+  @media (max-width: 768px) {
+    height: 2em;
+    width: auto;
+    margin: 1em;
+  }
 `;
 
 const BtnsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 const LoginModal = ({ userData, setShowLoginModal, switchModals, setWinCount, setLoseCount, setUsername, setLoggedIn, setUserId }) => {

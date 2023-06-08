@@ -12,7 +12,7 @@ const GameContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  max-width: 500px;
+  max-width: 35rem;
   margin: auto;
 `;
 
