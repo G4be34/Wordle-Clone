@@ -48,12 +48,9 @@ app.post('/users', async (req, res) => {
 app.get('/word', async (req, res) => {
   try{
     const { word } = req.query;
-    console.log('Word value: ', word);
     const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
     const response = await axios.get(url);
-    console.log('Response data: ', response.data);
-    console.log('Response meanings: ', response.data[0].meanings);
     if (response.data[0].word !== undefined) {
       res.status(200).send({ isWord: true });
     } else {

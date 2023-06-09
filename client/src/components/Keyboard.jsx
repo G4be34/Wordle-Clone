@@ -33,7 +33,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
         } else {
-          console.log("Previous row: ", prevRow);
           return [...prevRow];
         }
       });
@@ -42,7 +41,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
         } else {
-          console.log("Previous row: ", prevRow);
           return [...prevRow];
         }
       });
@@ -51,7 +49,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
         } else {
-          console.log("Previous row: ", prevRow);
           return [...prevRow];
         }
       });
@@ -60,7 +57,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
         } else {
-          console.log("Previous row: ", prevRow);
           return [...prevRow];
         }
       });
@@ -69,7 +65,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
         } else {
-          console.log("Previous row: ", prevRow);
           return [...prevRow];
         }
       });
@@ -78,7 +73,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
         if (prevRow.length < 5) {
           return [...prevRow, typedLetter];
         } else {
-          console.log("Previous row: ", prevRow);
           return [...prevRow];
         }
       });

@@ -71,7 +71,6 @@ const CreateAccountModal = ({ setUsername, setWinCount, setUserId, setLoseCount,
             username
           }
         });
-        console.log('New user object: ', newUser);
         setUsername(newUser.data.username);
         setWinCount(newUser.data.wins);
         setLoseCount(newUser.data.losses);

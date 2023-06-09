@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost/wordle-clone');
+mongoose.connect('mongodb://18.221.56.13/wordle-clone');
 
 const userSchema = mongoose.Schema({
   username: {

@@ -92,7 +92,6 @@ export default function App() {
       const randomIndex = Math.floor(Math.random() * 100);
       const newWords = await axios.get('/newgoal');
       const newWord = newWords.data[randomIndex].word.toUpperCase();
-      console.log('New goal word: ', newWord);
       setGoalWord(newWord);
       setLetterCorrectness([]);
       setRowNumber(0);

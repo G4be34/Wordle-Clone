@@ -43,7 +43,6 @@ const GameInfo = ({ winLossCount }) => {
   const userLogIn = async () => {
     try {
       const results = await axios.get('/users');
-      console.log('User results: ', results.data);
       setUserData(results.data);
       setShowLoginModal(true);
     } catch (error) {
