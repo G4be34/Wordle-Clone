@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx webpack --watch --mode development & npx nodemon --watch ./server ./server/index.js",
+    "dev": "npx webpack --mode development & npx nodemon ./server ./server/index.js",
     "build": "npx webpack --mode production",
     "start": "nodemon ./server/index.js"
   },
@@ -37,6 +37,7 @@
     "css-loader": "^6.8.1",
     "eslint": "^8.42.0",
     "eslint-plugin-react": "^7.32.2",
+    "html-webpack-plugin": "^5.5.2",
     "nodemon": "^2.0.22",
     "style-loader": "^3.3.3",
     "webpack": "^5.85.1",
