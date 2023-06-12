@@ -46,12 +46,8 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
 
     if (rowNumber === 1) {
       setRow1Color(letterCorrectness.map(status => {
-        if (status === 'wrong') {
-          return 'red';
-        }
-        if (status === 'close') {
-          return 'yellow';
-        }
+        if (status === 'wrong') return 'red';
+        if (status === 'close') return 'yellow';
         if (status === 'correct') {
           winCounter += 1;
           return 'green'
@@ -60,12 +56,8 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
       }));
     } else if (rowNumber === 2) {
       setRow2Color(letterCorrectness.map(status => {
-        if (status === 'wrong') {
-          return 'red';
-        }
-        if (status === 'close') {
-          return 'yellow';
-        }
+        if (status === 'wrong') return 'red';
+        if (status === 'close') return 'yellow';
         if (status === 'correct') {
           winCounter += 1;
           return 'green'
@@ -74,12 +66,8 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
       }));
     } else if (rowNumber === 3) {
       setRow3Color(letterCorrectness.map(status => {
-        if (status === 'wrong') {
-          return 'red';
-        }
-        if (status === 'close') {
-          return 'yellow';
-        }
+        if (status === 'wrong') return 'red';
+        if (status === 'close') return 'yellow';
         if (status === 'correct') {
           winCounter += 1;
           return 'green'
@@ -88,12 +76,8 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
       }));
     } else if (rowNumber === 4) {
       setRow4Color(letterCorrectness.map(status => {
-        if (status === 'wrong') {
-          return 'red';
-        }
-        if (status === 'close') {
-          return 'yellow';
-        }
+        if (status === 'wrong') return 'red';
+        if (status === 'close') return 'yellow';
         if (status === 'correct') {
           winCounter += 1;
           return 'green'
@@ -102,12 +86,8 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
       }));
     } else if (rowNumber === 5) {
       setRow5Color(letterCorrectness.map(status => {
-        if (status === 'wrong') {
-          return 'red';
-        }
-        if (status === 'close') {
-          return 'yellow';
-        }
+        if (status === 'wrong') return 'red';
+        if (status === 'close') return 'yellow';
         if (status === 'correct') {
           winCounter += 1;
           return 'green'
@@ -116,12 +96,8 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
       }));
     } else if (rowNumber === 6) {
       setRow6Color(letterCorrectness.map(status => {
-        if (status === 'wrong') {
-          return 'red';
-        }
-        if (status === 'close') {
-          return 'yellow';
-        }
+        if (status === 'wrong') return 'red';
+        if (status === 'close') return 'yellow';
         if (status === 'correct') {
           winCounter += 1;
           return 'green'
@@ -130,11 +106,9 @@ const WordBox = ({ row1, row2, row3, row4, row5, row6, letterCorrectness, rowNum
       }));
     }
     if (winCounter === 5) {
-      console.log('You win!');
       setShowWinModal(true);
     }
     if (rowNumber === 6 && winCounter !== 5) {
-      console.log('You Lose!');
       setShowLoseModal(true);
     }
   }, [letterCorrectness, rowNumber]);

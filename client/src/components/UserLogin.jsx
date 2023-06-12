@@ -51,6 +51,7 @@ const UserPasswordContainer = styled.div`
 
 const UserLogin = ({ user, setUsername, setWinCount, setLoseCount, setShowLoginModal, setLoggedIn, setUserId }) => {
   const [passwordInput, setPasswordInput] = useState('');
+  const [wrongPassword, setWrongPassword] = useState(false);
 
   const userLogin = (password) => {
     if (parseInt(password) === user.number) {
@@ -63,7 +64,7 @@ const UserLogin = ({ user, setUsername, setWinCount, setLoseCount, setShowLoginM
       setShowLoginModal(false);
     } else {
       setPasswordInput('');
-      alert('Wrong number password, please try again')
+      setWrongPassword(true);
     }
   }
 
@@ -71,8 +72,9 @@ const UserLogin = ({ user, setUsername, setWinCount, setLoseCount, setShowLoginM
     <UserInfo key={user._id}>
       <UserPasswordContainer>
         <div>{user.username}</div>
-        <input type="text" placeholder="Type Number Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+        <input type="password" placeholder="Type Number Password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
         <button onClick={() => userLogin(passwordInput)}>Enter</button>
+        {wrongPassword && <div style={{ color: 'red' }}>Wrong number password</div>}
       </UserPasswordContainer>
       <ScoreInfo>
         <div>Wins: {user.wins}</div>

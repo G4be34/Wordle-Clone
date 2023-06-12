@@ -47,7 +47,10 @@ const LoseModal = ({ setShowLoseModal, createNewGoalWord, setWinLossCount }) => 
         <div>Would you like to play again?</div>
         <ButtonContainer>
           <button onClick={generateNewWord}>Yes!</button>
-          <button onClick={() => setShowLoseModal(false)}>No</button>
+          <button onClick={() => {
+            setWinLossCount(false);
+            setShowLoseModal(false)
+          }}>No</button>
         </ButtonContainer>
       </MessageContainer>
     </ModalOverlay>

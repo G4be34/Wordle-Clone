@@ -39,10 +39,13 @@ const AccountInfoContainer = styled.div`
 const CreateAccountModal = ({ setUsername, setWinCount, setUserId, setLoseCount, setShowCreateModal, setShowLoginModal, setLoggedIn }) => {
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [typedPassword, setTypedPassword] = useState(false);
   const [goodPw, setGoodPw] = useState(true);
   const [goodUser, setGoodUser] = useState(true);
+  const [matchingPws, setMatchingPws] = useState(true);
 
-  const createNewAccount = async (username, password) => {
+  const createNewAccount = async (username, password, secondPw) => {
     try {
       const checkUsername = await axios.get('/users', {
         params: { username }
@@ -62,9 +65,18 @@ const CreateAccountModal = ({ setUsername, setWinCount, setUserId, setLoseCount,
         setGoodPw(false);
         return;
       } else {
+        if (!goodPw) {
+          setGoodPw(true);
+        }
         if (!goodUser) {
           setGoodUser(true);
         }
+
+        if (password !== secondPw) {
+          setMatchingPws(false);
+          return;
+        }
+
         await axios.post('/users', { username, number: numberPw });
         const newUser = await axios.get('/users', {
           params: {
@@ -98,12 +110,15 @@ const CreateAccountModal = ({ setUsername, setWinCount, setUserId, setLoseCount,
           {goodUser === false && <div style={{ color: 'red' }}>Username already exists</div>}
         </AccountInfoContainer>
         <AccountInfoContainer>
-          <div>Choose a number between 1 and 1000</div>
-          <input type="text" placeholder="Number" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
+          <div>Choose a number between 1 and 1000 as your Password</div>
+          <input type="password" placeholder="Number" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
           {goodPw === false && <div style={{ color: 'red' }}>Please input a number between 1 and 1000</div>}
+          <div style={{ marginTop: '1em' }} >Confirm Number Password</div>
+          <input type="password" placeholder="Confirm Number" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+          {matchingPws === false && <div style={{ color: 'red' }}>Passwords do not match</div>}
         </AccountInfoContainer>
         <ButtonContainer>
-          <button style={{ marginLeft: '1em' }} onClick={() => createNewAccount(newUsername, newPassword)}>Submit</button>
+          <button style={{ marginLeft: '1em' }} onClick={() => createNewAccount(newUsername, newPassword, confirmPassword)}>Submit</button>
           <button onClick={cancelAccount}>Cancel</button>
         </ButtonContainer>
       </AccountContainer>
