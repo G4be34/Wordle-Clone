@@ -35,7 +35,7 @@ const InfoContainer = styled.div`
   border-radius: 20px;
   border: 2px solid black;
   height: auto;
-  width: 40vw;
+  width: 55vw;
   max-height: 25vw;
   overflow-y: auto;
 
@@ -74,7 +74,7 @@ const BtnsContainer = styled.div`
   }
 `;
 
-const LoginModal = ({ userData, setShowLoginModal, switchModals, setWinCount, setLoseCount, setUsername, setLoggedIn, setUserId }) => {
+const LoginModal = ({ loggedIn, userId, userData, setShowLoginModal, switchModals, setWinCount, setLoseCount, setUsername, setLoggedIn, setUserId }) => {
   const [userList, setUserList] = useState(userData);
   const [showDataStorage, setShowDataStorage] = useState(userList.slice(0, 4));
 
@@ -94,7 +94,7 @@ const LoginModal = ({ userData, setShowLoginModal, switchModals, setWinCount, se
     <ModalOverlay>
       <InfoContainer>
         {showDataStorage.map((user) => (
-          <UserLogin user={user} key={user._id} setShowLoginModal={setShowLoginModal} setWinCount={setWinCount} setLoseCount={setLoseCount} setUsername={setUsername} setLoggedIn={setLoggedIn} setUserId={setUserId} />
+          <UserLogin user={user} key={user._id} setShowLoginModal={setShowLoginModal} setWinCount={setWinCount} setLoseCount={setLoseCount} setUsername={setUsername} setLoggedIn={setLoggedIn} setUserId={setUserId} userId={userId} loggedIn={loggedIn} />
         ))}
         <BtnsContainer>
           <Buttons onClick={switchModals}>Create an Account</Buttons>

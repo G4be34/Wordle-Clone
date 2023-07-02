@@ -102,6 +102,21 @@ app.put('/users/lose', async (req, res) => {
   }
 });
 
+app.delete('/users', async (req, res) => {
+  try {
+    console.log('ID Info: ', req.data);
+    const { id } = req.body;
+    console.log('ID: ', id);
+
+    await User.deleteOne({ _id: id });
+
+    res.sendStatus(204);
+  } catch (error) {
+    console.log("Error deleting user: ", error);
+    res.sendStatus(500);
+  }
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

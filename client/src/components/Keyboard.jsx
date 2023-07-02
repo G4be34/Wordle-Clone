@@ -27,7 +27,6 @@ const Keyboard = ({setRow1, setRow2, setRow3, setRow4, setRow5, setRow6, rowNumb
 
   const insertLetter = (e) => {
     const typedLetter = e.target.textContent;
-    console.log('Typed letter is: ', typedLetter);
     if (rowNumber === 0) {
       setRow1((prevRow) => {
         if (prevRow.length < 5) {

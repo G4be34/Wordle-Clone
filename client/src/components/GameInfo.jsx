@@ -100,8 +100,8 @@ const GameInfo = ({ winLossCount }) => {
       {showCreateModal && <CreateAccountModal setUsername={setUsername} setWinCount={setWinCount} setUserId={setUserId} setLoggedIn={setLoggedIn}
         setLoseCount={setLoseCount} setShowCreateModal={setShowCreateModal} setShowLoginModal={setShowLoginModal} />}
       {showLoginModal && <LoginModal userData={userData} setShowLoginModal={setShowLoginModal} switchModals={switchModals}
-      setUserId={setUserId}
-        setUsername={setUsername} setLoseCount={setLoseCount} setWinCount={setWinCount} setLoggedIn={setLoggedIn} />}
+      setUserId={setUserId} userId = {userId} setUsername={setUsername} setLoseCount={setLoseCount}
+      setWinCount={setWinCount} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />}
       <ScoreBox>
         <div>Wins: {winCount}</div>
         <div>Losses: {loseCount}</div>
